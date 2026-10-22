@@ -1,16 +1,28 @@
 # User Story Template
 
-**As a** [role]  
-**I need** [function]  
-**So that** [benefit]  
+## Title
+[Short description of the feature]
 
-### Details and Assumptions
-* [document what you know]
+## User Story
+**As a** [user or role],  
+**I need** [a feature or functionality],  
+**So that** [the benefit or value].
 
-### Acceptance Criteria
-
+## Acceptance Criteria
 ```gherkin
-Given [some context]
-When [certain action is taken]
-Then [the outcome of action is observed]
+Given [a specific condition]
+When [an action is performed]
+Then [the expected result occurs]
 ```
+
+## Priority
+[High / Medium / Low]
+
+## Story Points
+[Estimated effort required to complete the story: 1, 2, 3, 5, 8]
+
+## Labels
+[Enhancement / Technical Debt]
+
+## Status
+[New Issues / Ice Box / Product Backlog / Sprint Backlog / Done]
