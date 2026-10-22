@@ -1,0 +1,7 @@
+curl -i -X DELETE http://localhost:8080/accounts/1
+
+HTTP/1.0 204 NO CONTENT
+Content-Type: text/html; charset=utf-8
+Content-Length: 0
+Server: Werkzeug/2.1.2 Python/3.9.16
+Date: Wed, 21 Oct 2026 09:50:00 GMT

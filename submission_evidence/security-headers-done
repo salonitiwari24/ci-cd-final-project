@@ -1,0 +1,34 @@
+nosetests -v --with-spec --spec-color --with-coverage --cover-package=service
+
+Account Service Tests
+- It should Create a new Account
+- It should not Create an Account when sending the wrong data
+- It should not Create an Account when sending the wrong media type
+- It should get 200_OK from the Home Page
+- It should be healthy
+- It should Read a single Account
+- It should not Read an Account that is not found
+- It should Get a list of Accounts
+- It should Update an existing Account
+- It should not Update an Account that is not found
+- It should Delete an Account
+- It should not allow an illegal method call
+- It should return security headers
+- It should return a CORS header
+
+Name                               Stmts   Miss  Cover   Missing
+----------------------------------------------------------------
+service/__init__.py                   21      0   100%
+service/common/cli_commands.py         8      0   100%
+service/common/error_handlers.py      35      1    97%   40
+service/common/log_handlers.py        11      0   100%
+service/common/status.py              46      0   100%
+service/config.py                      7      0   100%
+service/models.py                     60      3    95%   38, 48, 144
+service/routes.py                     54      1    98%   99
+----------------------------------------------------------------
+TOTAL                                242      5    98%
+----------------------------------------------------------------------
+Ran 14 tests in 1.512s
+
+OK
