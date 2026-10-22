@@ -1,12 +1,12 @@
 Run actions/checkout@v3
-Syncing repository: Samarth070906/devops-capstone-project
+Syncing repository: salonitiwari24/ci-cd-final-project
 Getting Git version info
-Copying '/home/runner/work/_actions/actions/checkout/v3' to '/home/runner/work/devops-capstone-project/devops-capstone-project'
+Copying '/home/runner/work/_actions/actions/checkout/v3' to '/home/runner/work/ci-cd-final-project/ci-cd-final-project'
 /usr/bin/git version
 git version 2.40.1
 Initializing the repository
-/usr/bin/git init /home/runner/work/devops-capstone-project/devops-capstone-project
-/usr/bin/git config --local --add safe.directory /home/runner/work/devops-capstone-project/devops-capstone-project
+/usr/bin/git init /home/runner/work/ci-cd-final-project/ci-cd-final-project
+/usr/bin/git config --local --add safe.directory /home/runner/work/ci-cd-final-project/ci-cd-final-project
 /usr/bin/git config --local --add http.https://github.com/.extraheader AUTHORIZATION: basic ***
 /usr/bin/git fetch --no-tags --prune --progress --no-recurse-submodules --depth=1 origin +refs/heads/main:refs/remotes/origin/main +refs/tags/*:refs/tags/*
 /usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
