@@ -20,6 +20,8 @@ class CounterTest(TestCase):
     def setUpClass(cls):
         """ This runs once before the entire test suite """
         app.testing = True
+        from service import talisman
+        talisman.force_https = False
 
     @classmethod
     def tearDownClass(cls):
