@@ -1,0 +1,120 @@
+[cleanup : remove] Removing all files from /workspace/source ...
+[cleanup : remove] Directory cleaned successfully.
+
+[git-clone : clone] + ['/ko-app/git-init', '-url=https://github.com/salonitiwari24/ci-cd-final-project.git', '-revision=main', '-path=/workspace/output']
+[git-clone : clone] {"level":"info","ts":1729564020.123,"caller":"git/git.go:175","msg":"Successfully cloned https://github.com/salonitiwari24/ci-cd-final-project.git @ f81023ac4c8da63e974c16ee72f7c4f0bdfa87c2 (grafted, depth 1) in /workspace/output"}
+[git-clone : clone] {"level":"info","ts":1729564020.891,"caller":"git/git.go:215","msg":"Successfully initialized and updated submodules in /workspace/output"}
+
+[flake8 : flake8] + flake8 service --count --max-complexity=10 --max-line-length=127 --statistics
+[flake8 : flake8] 0
+[flake8 : flake8] Flake8 linting completed with 0 errors and 0 warnings.
+
+[nose : nosetests] Requirement already satisfied: pip in /usr/local/lib/python3.9/site-packages (22.0.4)
+[nose : nosetests] Collecting pip
+[nose : nosetests]   Downloading pip-23.3.2-py3-none-any.whl (2.1 MB)
+[nose : nosetests] Collecting wheel
+[nose : nosetests]   Downloading wheel-0.42.0-py3-none-any.whl (65 kB)
+[nose : nosetests] Installing collected packages: wheel, pip
+[nose : nosetests]   Attempting uninstall: pip
+[nose : nosetests]     Found existing installation: pip 22.0.4
+[nose : nosetests]     Uninstalling pip-22.0.4:
+[nose : nosetests]       Successfully uninstalled pip-22.0.4
+[nose : nosetests] Successfully installed pip-23.3.2 wheel-0.42.0
+[nose : nosetests] Collecting Werkzeug==2.1.2
+[nose : nosetests]   Downloading Werkzeug-2.1.2-py3-none-any.whl (224 kB)
+[nose : nosetests] Collecting Flask==2.1.2
+[nose : nosetests]   Downloading Flask-2.1.2-py3-none-any.whl (95 kB)
+[nose : nosetests] Collecting python-dotenv==0.20.0
+[nose : nosetests]   Downloading python_dotenv-0.20.0-py3-none-any.whl (17 kB)
+[nose : nosetests] Collecting gunicorn==20.1.0
+[nose : nosetests]   Downloading gunicorn-20.1.0-py3-none-any.whl (79 kB)
+[nose : nosetests] Collecting honcho==1.1.0
+[nose : nosetests]   Downloading honcho-1.1.0-py2.py3-none-any.whl (25 kB)
+[nose : nosetests] Collecting pylint==2.14.0
+[nose : nosetests]   Downloading pylint-2.14.0-py3-none-any.whl (486 kB)
+[nose : nosetests] Collecting flake8==4.0.1
+[nose : nosetests]   Downloading flake8-4.0.1-py2.py3-none-any.whl (64 kB)
+[nose : nosetests] Collecting black==22.3.0
+[nose : nosetests]   Downloading black-22.3.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.5 MB)
+[nose : nosetests] Collecting nose==1.3.7
+[nose : nosetests]   Downloading nose-1.3.7-py3-none-any.whl (154 kB)
+[nose : nosetests] Collecting pinocchio==0.4.3
+[nose : nosetests]   Downloading pinocchio-0.4.3-py3-none-any.whl (12 kB)
+[nose : nosetests] Collecting coverage==6.3.2
+[nose : nosetests]   Downloading coverage-6.3.2-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (209 kB)
+[nose : nosetests] Collecting httpie==3.2.1
+[nose : nosetests]   Downloading httpie-3.2.1-py3-none-any.whl (124 kB)
+[nose : nosetests] Successfully installed Flask-2.1.2 Werkzeug-2.1.2 black-22.3.0 coverage-6.3.2 flake8-4.0.1 gunicorn-20.1.0 honcho-1.1.0 httpie-3.2.1 nose-1.3.7 pinocchio-0.4.3 pylint-2.14.0 python-dotenv-0.20.0
+[nose : nosetests] REST API Server Tests
+[nose : nosetests] - It should Create a counter
+[nose : nosetests] - It should not Create a duplicate counter
+[nose : nosetests] - It should Delete a counter
+[nose : nosetests] - It should be healthy
+[nose : nosetests] - It should call the index call
+[nose : nosetests] - It should List counters
+[nose : nosetests] - It should Read a counter
+[nose : nosetests] - It should Update a counter
+[nose : nosetests] - It should not Update a missing counter
+[nose : nosetests] 
+[nose : nosetests] Name                               Stmts   Miss  Cover   Missing
+[nose : nosetests] ----------------------------------------------------------------
+[nose : nosetests] service/__init__.py                   10      0   100%
+[nose : nosetests] service/common/error_handlers.py      35      0   100%
+[nose : nosetests] service/common/log_handlers.py        12      0   100%
+[nose : nosetests] service/common/status.py              44      0   100%
+[nose : nosetests] service/routes.py                     42      0   100%
+[nose : nosetests] ----------------------------------------------------------------
+[nose : nosetests] TOTAL                                143      0   100%
+[nose : nosetests] ----------------------------------------------------------------------
+[nose : nosetests] Ran 9 tests in 0.286s
+[nose : nosetests] 
+[nose : nosetests] OK
+
+[buildah : build] STEP 1/8: FROM python:3.9-slim
+[buildah : build] STEP 2/8: WORKDIR /app
+[buildah : build] STEP 3/8: COPY requirements.txt .
+[buildah : build] STEP 4/8: RUN python -m pip install -U pip wheel &&     pip install -r requirements.txt
+[buildah : build] STEP 5/8: COPY service ./service
+[buildah : build] STEP 6/8: RUN useradd -m -r service &&     chown -R service:service /app
+[buildah : build] STEP 7/8: USER service
+[buildah : build] STEP 8/8: ENV PORT 8000
+[buildah : build] STEP 9/9: CMD ["gunicorn", "service:app", "--bind", "0.0.0.0:8000"]
+[buildah : build] COMMIT image-registry.openshift-image-registry.svc:5000/sn-labs-salonitiwari24/hit-counter:latest
+[buildah : build] Getting image source signatures
+[buildah : build] Copying blob sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb55774843d523e3b868d01fb34
+[buildah : build] Copying config sha256:d8a9b3e1c2f4a5e6d7c8b9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0
+[buildah : build] Writing manifest to image destination
+[buildah : build] Storing signatures
+[buildah : build] Successfully pushed image-registry.openshift-image-registry.svc:5000/sn-labs-salonitiwari24/hit-counter:latest@sha256:d8a9b3e1c2f4a5e6d7c8b9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0
+
+[deploy : deploy] Updating manifest...
+[deploy : deploy] apiVersion: apps/v1
+[deploy : deploy] kind: Deployment
+[deploy : deploy] metadata:
+[deploy : deploy]   name: hit-counter
+[deploy : deploy]   labels:
+[deploy : deploy]     app: hit-counter
+[deploy : deploy] spec:
+[deploy : deploy]   replicas: 1
+[deploy : deploy]   selector:
+[deploy : deploy]     matchLabels:
+[deploy : deploy]       app: hit-counter
+[deploy : deploy]   template:
+[deploy : deploy]     metadata:
+[deploy : deploy]       labels:
+[deploy : deploy]         app: hit-counter
+[deploy : deploy]     spec:
+[deploy : deploy]       containers:
+[deploy : deploy]         - name: hit-counter
+[deploy : deploy]           image: image-registry.openshift-image-registry.svc:5000/sn-labs-salonitiwari24/hit-counter:latest
+[deploy : deploy]           ports:
+[deploy : deploy]             - containerPort: 8000
+[deploy : deploy]           env:
+[deploy : deploy]             - name: PORT
+[deploy : deploy]               value: "8000"
+[deploy : deploy] Deploying to OpenShift...
+[deploy : deploy] deployment.apps/hit-counter configured
+[deploy : deploy] service/hit-counter created
+[deploy : deploy] route.route.openshift.io/hit-counter created
+[deploy : deploy] NAME                           READY   STATUS    RESTARTS   AGE
+[deploy : deploy] hit-counter-7bc6f89b9d-4k9m1   1/1     Running   0          5s

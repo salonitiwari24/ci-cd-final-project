@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hit-counter
+  labels:
+    app: hit-counter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hit-counter
+  template:
+    metadata:
+      labels:
+        app: hit-counter
+    spec:
+      containers:
+        - name: hit-counter
+          image: IMAGE_NAME_HERE
+          ports:
+            - containerPort: 8000
+          env:
+            - name: PORT
+              value: "8000"
+          resources:
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+            requests:
+              cpu: "100m"
+              memory: "128Mi"

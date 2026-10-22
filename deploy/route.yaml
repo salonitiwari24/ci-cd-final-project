@@ -1,0 +1,12 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: hit-counter
+  labels:
+    app: hit-counter
+spec:
+  to:
+    kind: Service
+    name: hit-counter
+  port:
+    targetPort: 8000
